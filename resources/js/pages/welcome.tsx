@@ -111,7 +111,7 @@ export default function Welcome() {
                                     </span>
                                 </li>
                             </ul>
-                            <ul className="flex gap-3 text-sm leading-normal">
+                            <ul className="flex flex-col gap-3 text-sm leading-normal">
                                 <li>
                                     <a
                                         href="https://cloud.laravel.com"
@@ -119,6 +119,24 @@ export default function Welcome() {
                                         className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
                                     >
                                         Deploy now
+                                    </a>
+                                </li>
+                                <li>
+                                    <button
+                                        onClick={() => {
+                                            throw new Error('This is your first error!');
+                                        }}
+                                        className="inline-block cursor-pointer rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
+                                    >
+                                        Break the world
+                                    </button>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/debug-sentry"
+                                        className="inline-block rounded-sm border border-black bg-[#1b1b18] px-5 py-1.5 text-sm leading-normal text-white hover:border-black hover:bg-black dark:border-[#eeeeec] dark:bg-[#eeeeec] dark:text-[#1C1C1A] dark:hover:border-white dark:hover:bg-white"
+                                    >
+                                        Debug Sentry (server error)
                                     </a>
                                 </li>
                             </ul>
