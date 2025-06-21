@@ -15,10 +15,19 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
-     */
+    * Bootstrap any application services.
+    */
     public function boot(): void
     {
-        //
+        \Illuminate\Support\Facades\Event::listen(function (\Illuminate\Auth\Events\Authenticated $event) {
+            $user = $event->user;
+            \Sentry\Laravel\Integration::configureScope(static function (\Sentry\State\Scope $scope) use ($user): void {
+                $scope->setUser([
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ]);
+            });
+        });
     }
 }

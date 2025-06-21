@@ -41,3 +41,12 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Todo {
+    id: number;
+    title: string;
+    description?: string;
+    completed: boolean;
+    created_at: string;
+    updated_at: string;
+}
